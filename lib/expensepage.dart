@@ -63,7 +63,12 @@ class _ExpensePageState extends State<ExpensePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.pushNamed(context, '/addexpense');
+          Navigator.pushNamed(context, '/addexpense').then(
+            (value) {
+              expenses = [];
+              fetchExpenses();
+            },
+          );
           // print('Add expense');
         },
         child: const Icon(Icons.add),
